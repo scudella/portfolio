@@ -2,6 +2,8 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const { languages, defaultLanguage } = require("./languages")
+
 const siteUrl = process.env.MYURL || `https://portfolio.scudella.net.br`
 
 module.exports = {
@@ -31,8 +33,74 @@ module.exports = {
         accessToken: process.env.STRAPI_TOKEN,
         apiURL: process.env.STRAPI_API_URL || `http://localhost:1337`,
         queryLimit: 1000, // Default to 100
-        collectionTypes: [`job`, `project`],
-        singleTypes: [`about`],
+        collectionTypes: [
+          {
+            singularName: "project",
+            pluginOptions: {
+              i18n: {
+                locale: "all",
+              },
+            },
+          },
+          {
+            singularName: "job",
+            pluginOptions: {
+              i18n: {
+                locale: "all",
+              },
+            },
+          },
+          {
+            singularName: "service",
+            pluginOptions: {
+              i18n: {
+                locale: "all",
+              },
+            },
+          },
+        ],
+        singleTypes: [
+          {
+            singularName: "about",
+            pluginOptions: {
+              i18n: {
+                locale: "all", // Fetch all localizations
+              },
+            },
+          },
+          {
+            singularName: "flag",
+            pluginOptions: {
+              i18n: {
+                locale: "all", // Fetch all localizations
+              },
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/locales`,
+        name: `locale`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-i18next",
+      options: {
+        languages,
+        defaultLanguage,
+        siteUrl,
+        i18nextOptions: {
+          // debug: true,
+          fallbackLng: defaultLanguage,
+          supportedLngs: languages,
+          defaultNS: "common",
+          interpolation: {
+            escapeValue: false, // not needed for react as it escapes by default
+          },
+        },
       },
     },
     {

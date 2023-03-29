@@ -1,7 +1,7 @@
 import React from "react"
 import Title from "./Title"
 import Project from "./Project"
-import { Link } from "gatsby"
+import { Link, Trans } from "gatsby-plugin-react-i18next"
 
 const Projects = ({ projects, title, showLink }) => {
   return (
@@ -14,7 +14,7 @@ const Projects = ({ projects, title, showLink }) => {
       </div>
       {showLink && (
         <Link to="/projects/" className="btn center-btn">
-          projects
+          <Trans i18nKey="projects">projects</Trans>
         </Link>
       )}
     </section>

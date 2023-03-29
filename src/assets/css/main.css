@@ -279,7 +279,7 @@ Navbar
   }
   .nav-center {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 7fr 8fr;
     align-items: center;
   }
 }
@@ -288,6 +288,14 @@ Navbar
   .navbar {
     background: transparent;
   }
+}
+.languages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 0.5rem;
+}
+.languages img {
+  width: 30px;
 }
 /*
 =============== 

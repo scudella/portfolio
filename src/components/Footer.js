@@ -1,5 +1,7 @@
 import React from "react"
 import socialLinks from "../constants/social_links"
+import { Trans } from "gatsby-plugin-react-i18next"
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -21,7 +23,8 @@ const Footer = () => {
         </div>
         <h4>
           copyright &copy; {new Date().getFullYear()}
-          <span> Eduardo Scudeller Libardi</span> all rights reserved
+          <span> Eduardo Scudeller Libardi </span>
+          <Trans i18nKey="footerReserved">all rights reserved</Trans>
         </h4>
       </div>
     </footer>

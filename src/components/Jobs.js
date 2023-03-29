@@ -2,7 +2,12 @@ import React from "react"
 import Title from "./Title"
 import { FaAngleDoubleRight } from "react-icons/fa"
 import { graphql, useStaticQuery } from "gatsby"
-import { Link } from "gatsby"
+import {
+  Link,
+  useI18next,
+  useTranslation,
+  Trans,
+} from "gatsby-plugin-react-i18next"
 
 const query = graphql`
   {
@@ -11,6 +16,7 @@ const query = graphql`
         company
         cpyBtn
         position
+        locale
         date
         desc {
           id
@@ -23,15 +29,21 @@ const query = graphql`
 
 const Jobs = () => {
   const data = useStaticQuery(query)
-  const {
+  let {
     allStrapiJob: { nodes: jobs },
   } = data
   const [value, setValue] = React.useState(0)
+
+  const { i18n } = useI18next()
+  const resolvedLanguage = i18n.resolvedLanguage
+
+  jobs = jobs.filter(job => job.locale === resolvedLanguage)
   const { company, position, date, desc } = jobs[value]
+  const { t } = useTranslation()
 
   return (
     <section className="section jobs">
-      <Title title="experience" />
+      <Title title={t("experience")} />
       <div className="jobs-center">
         {/* btn container */}
         <div className="btn-container">
@@ -63,7 +75,7 @@ const Jobs = () => {
         </article>
       </div>
       <Link to="/about/" className="btn center-btn">
-        more info
+        <Trans i18nKey="jobs-button">more info</Trans>
       </Link>
     </section>
   )

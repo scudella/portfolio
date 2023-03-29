@@ -57,11 +57,23 @@ export const Head = ({ location, data }) => (
 )
 
 export const query = graphql`
-  query getSingleProject($title: String) {
+  query getSingleProject($title: String, $language: String!) {
+    locales: allLocale(
+      filter: { ns: { in: ["projects"] }, language: { eq: $language } }
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
     strapiProject(title: { eq: $title }) {
       description
       title
       url
+      locale
       printScreen {
         localFile {
           publicURL

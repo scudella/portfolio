@@ -1,7 +1,7 @@
 import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { FaGithubSquare, FaShareSquare, FaSearch } from "react-icons/fa"
-import { Link } from "gatsby"
+import { Link } from "gatsby-plugin-react-i18next"
 
 const Project = ({
   description,

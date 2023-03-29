@@ -1,16 +1,19 @@
 import React from "react"
 import Title from "./Title"
-import services from "../constants/services"
-const Services = () => {
+import icons from "../constants/services"
+import { useTranslation } from "gatsby-plugin-react-i18next"
+
+const Services = ({ services }) => {
+  const { t } = useTranslation()
   return (
     <section className="section bg-grey">
-      <Title title="services" />
+      <Title title={t("services")} />
       <div className="section-center services-center">
         {services.map(service => {
-          const { id, icon, title, text } = service
+          const { index, title, text } = service
           return (
-            <article key={id} className="service">
-              {icon}
+            <article key={index} className="service">
+              {icons[index - 1].icon}
               <h4>{title}</h4>
               <div className="underline"></div>
               <p>{text}</p>

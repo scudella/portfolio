@@ -1,7 +1,7 @@
 import React from "react"
-import { Link } from "gatsby"
 import socialLinks from "../constants/social_links"
 import { StaticImage } from "gatsby-plugin-image"
+import { Link, Trans } from "gatsby-plugin-react-i18next"
 
 const Hero = () => {
   return (
@@ -9,10 +9,16 @@ const Hero = () => {
       <section className="section-center hero-center">
         <article className="hero-info">
           <div className="underline"></div>
-          <h1>i'm eduardo</h1>
-          <h4>freelance web frontend and backend</h4>
+          <h1>
+            <Trans i18nKey="my-name">i'm eduardo</Trans>
+          </h1>
+          <h4>
+            <Trans i18nKey="my-status">
+              freelance web frontend and backend
+            </Trans>
+          </h4>
           <Link to="/contact/" className="btn">
-            contact me
+            <Trans i18nKey="contact me">contact me</Trans>
           </Link>
           <div className="social-links">
             {socialLinks.map(link => {

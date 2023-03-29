@@ -1,8 +1,8 @@
 import React from "react"
 import links from "../constants/links"
 import socialLinks from "../constants/social_links"
-import { Link } from "gatsby"
 import { FaTimes } from "react-icons/fa"
+import { Link, Trans } from "gatsby-plugin-react-i18next"
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
@@ -16,7 +16,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             return (
               <li key={link.id}>
                 <Link to={link.url} onClick={toggleSidebar}>
-                  {link.text}
+                  <Trans i18nKey={link.text}>{link.text}</Trans>
                 </Link>
               </li>
             )

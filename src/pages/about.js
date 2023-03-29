@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Title from "../components/Title"
 import Seo from "../components/Seo"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 
 const About = ({ data }) => {
   const {
@@ -32,13 +33,28 @@ const About = ({ data }) => {
   )
 }
 
-export const Head = () => <Seo title="About" />
+export const Head = () => {
+  const { t } = useTranslation()
+  return <Seo title={t("About")} />
+}
 
 export const query = graphql`
-  {
-    strapiAbout {
+  query ($language: String!) {
+    locales: allLocale(
+      filter: { ns: { in: ["about"] }, language: { eq: $language } }
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+    strapiAbout(locale: { eq: $language }) {
       info
       title
+      locale
       stack {
         id
         title
