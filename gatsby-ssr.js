@@ -18,7 +18,3 @@ exports.wrapPageElement = ({ element }) => {
 
   return newElement
 }
-
-exports.onRenderBody = ({ setHtmlAttributes }) => {
-  setHtmlAttributes({ lang: "en" })
-}

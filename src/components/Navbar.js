@@ -21,9 +21,11 @@ const Navbar = ({ toggleSidebar }) => {
         <div className="nav-links">
           {pageLinks.map(link => {
             return link.id === 1 ? (
-              <Link key={link.id} to={link.url}>
-                <FaHome size={18} />
-              </Link>
+              <div className="link-icon">
+                <Link key={link.id} to={link.url}>
+                  <FaHome size={18} />
+                </Link>
+              </div>
             ) : (
               <Link key={link.id} to={link.url}>
                 <Trans i18nKey={link.text}>{link.text}</Trans>

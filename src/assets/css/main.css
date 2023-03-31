@@ -297,6 +297,9 @@ Navbar
 .languages img {
   width: 30px;
 }
+.link-icon {
+  padding-top: 11px;
+}
 /*
 =============== 
 Sidebar
