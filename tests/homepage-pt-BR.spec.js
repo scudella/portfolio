@@ -36,7 +36,7 @@ test("jobs section", async ({ page }) => {
   await page.getByRole("link", { name: "flag" }).nth(1).click()
   await page.getByRole("button", { name: "WxBR" }).click()
   await page.getByText("Outubro 2012 - Dezembro 2014").click()
-  await page.getByRole("button", { name: "Freelancer" }).click()
+  await page.getByRole("button", { name: "Freelancer II" }).click()
   await page
     .getByRole("heading", {
       name: "Desenvolvedor / Engenheiro de Sistemas / Devops",

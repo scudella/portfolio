@@ -109,7 +109,7 @@ test("jobs section", async ({ page }) => {
   // Click on a job
   await page.getByRole("button", { name: "WxBR" }).click()
   await page.getByRole("heading", { name: "Business Executive" }).click()
-  await page.getByRole("button", { name: "Freelancer" }).click()
+  await page.getByRole("button", { name: "Freelancer II" }).click()
   await page.getByRole("heading", { name: "Developer" }).click()
 })
 
