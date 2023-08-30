@@ -5,7 +5,8 @@
   "description": "portfolio",
   "author": "Eduardo S. Libardi",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "playwright"
   ],
   "scripts": {
     "develop": "gatsby develop",
