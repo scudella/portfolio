@@ -6,7 +6,8 @@
   "author": "Eduardo S. Libardi",
   "keywords": [
     "gatsby",
-    "playwright"
+    "playwright",
+    "SEO"
   ],
   "scripts": {
     "develop": "gatsby develop",
